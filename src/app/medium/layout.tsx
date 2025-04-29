@@ -1,6 +1,7 @@
 'use client';
 
-import { FaHome, FaBook, FaChartBar, FaUser, FaBuilding } from 'react-icons/fa';
+import React from 'react';
+import { FaHome, FaBook, FaUsers, FaChartLine, FaUser, FaCog } from 'react-icons/fa';
 import Sidebar from '@/components/Sidebar';
 import { SidebarProvider, useSidebar } from '@/contexts/SidebarContext';
 
@@ -16,19 +17,24 @@ const navItems = [
     href: '/medium/training',
   },
   {
-    icon: FaChartBar,
+    icon: FaChartLine,
     label: 'Progress',
     href: '/medium/progress',
   },
   {
-    icon: FaBuilding,
-    label: 'Organization',
-    href: '/medium/organization',
+    icon: FaUsers,
+    label: 'Teams',
+    href: '/medium/teams',
   },
   {
     icon: FaUser,
     label: 'Profile',
     href: '/medium/profile',
+  },
+  {
+    icon: FaCog,
+    label: 'Settings',
+    href: '/medium/settings',
   },
 ];
 
@@ -41,7 +47,7 @@ function MediumLayoutContent({
 
   return (
     <div className="min-h-screen bg-background-primary">
-      <Sidebar edition="Medium" navItems={navItems} />
+      <Sidebar edition="Group" navItems={navItems} />
       <main className={`transition-all duration-300 ${isCollapsed ? 'pl-20' : 'pl-64'}`}>
         <div className="max-w-7xl mx-auto p-8">
           {children}
@@ -61,4 +67,4 @@ export default function MediumLayout({
       <MediumLayoutContent>{children}</MediumLayoutContent>
     </SidebarProvider>
   );
-} 
+}

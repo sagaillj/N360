@@ -1,6 +1,7 @@
 'use client';
 
-import { FaHome, FaBook, FaChartBar, FaUser } from 'react-icons/fa';
+import React from 'react';
+import { FaHome, FaBook, FaChartLine, FaUser, FaCog } from 'react-icons/fa';
 import Sidebar from '@/components/Sidebar';
 import { SidebarProvider, useSidebar } from '@/contexts/SidebarContext';
 
@@ -16,7 +17,7 @@ const navItems = [
     href: '/small/training',
   },
   {
-    icon: FaChartBar,
+    icon: FaChartLine,
     label: 'Progress',
     href: '/small/progress',
   },
@@ -24,6 +25,11 @@ const navItems = [
     icon: FaUser,
     label: 'Profile',
     href: '/small/profile',
+  },
+  {
+    icon: FaCog,
+    label: 'Settings',
+    href: '/small/settings',
   },
 ];
 
@@ -36,7 +42,7 @@ function SmallLayoutContent({
 
   return (
     <div className="min-h-screen bg-background-primary">
-      <Sidebar edition="Small" navItems={navItems} />
+      <Sidebar edition="Personal" navItems={navItems} />
       <main className={`transition-all duration-300 ${isCollapsed ? 'pl-20' : 'pl-64'}`}>
         <div className="max-w-7xl mx-auto p-8">
           {children}
@@ -56,4 +62,4 @@ export default function SmallLayout({
       <SmallLayoutContent>{children}</SmallLayoutContent>
     </SidebarProvider>
   );
-} 
+}
