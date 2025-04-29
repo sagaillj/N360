@@ -1,6 +1,7 @@
 'use client';
 
-import { FaHome, FaBook, FaChartBar, FaUser, FaBuilding, FaUsers, FaCog } from 'react-icons/fa';
+import React from 'react';
+import { FaHome, FaBook, FaUsers, FaChartLine, FaBuilding, FaUser, FaCog } from 'react-icons/fa';
 import Sidebar from '@/components/Sidebar';
 import { SidebarProvider, useSidebar } from '@/contexts/SidebarContext';
 
@@ -16,7 +17,7 @@ const navItems = [
     href: '/large/training',
   },
   {
-    icon: FaChartBar,
+    icon: FaChartLine,
     label: 'Progress',
     href: '/large/progress',
   },
@@ -51,7 +52,7 @@ function LargeLayoutContent({
 
   return (
     <div className="min-h-screen bg-background-primary">
-      <Sidebar edition="Large" navItems={navItems} />
+      <Sidebar edition="Community" navItems={navItems} />
       <main className={`transition-all duration-300 ${isCollapsed ? 'pl-20' : 'pl-64'}`}>
         <div className="max-w-7xl mx-auto p-8">
           {children}
@@ -71,4 +72,4 @@ export default function LargeLayout({
       <LargeLayoutContent>{children}</LargeLayoutContent>
     </SidebarProvider>
   );
-} 
+}

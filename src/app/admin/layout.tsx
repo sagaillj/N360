@@ -20,7 +20,7 @@ function AdminLayoutContent({
 }) {
   return (
     <div className="min-h-screen bg-background-primary">
-      <Sidebar edition="Large" navItems={navItems} />
+      <Sidebar edition="Community" navItems={navItems} />
       <main className="pl-64 transition-all duration-300">
         <div className="max-w-7xl mx-auto p-8">
           {children}
