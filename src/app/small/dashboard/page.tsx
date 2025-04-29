@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { dummyCourse, dummyProjects, dummyUsers } from '@/lib/dummyData';
 import { formatDate } from '@/lib/utils';
 import { FaBook, FaChartLine, FaClock, FaCalendar, FaStar, FaHeart, FaHome, FaUser, FaTrophy, FaCheckCircle, FaLightbulb } from 'react-icons/fa';
-import EditionBadge from '@/components/EditionBadge';
+import { EditionBadge } from '@/components/EditionBadge';
 import Card from '@/components/Card';
 import ProgressBar from '@/components/ProgressBar';
 

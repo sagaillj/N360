@@ -15,6 +15,12 @@ interface PathCardProps {
 const PathCard = ({ title, description, icon: Icon, href, size, iconColor, sizeColor }: PathCardProps) => {
   const [prefix, suffix] = title.split(': ');
   
+  const shadowClasses = {
+    Small: 'hover:shadow-[0_0_15px_rgba(255,184,0,0.2)]',
+    Medium: 'hover:shadow-[0_0_15px_rgba(255,99,71,0.2)]',
+    Large: 'hover:shadow-[0_0_15px_rgba(0,255,0,0.2)]'
+  }[size];
+  
   const glowColor = {
     Small: '#FFB800',
     Medium: '#FF6347',
@@ -24,7 +30,7 @@ const PathCard = ({ title, description, icon: Icon, href, size, iconColor, sizeC
   return (
     <Link
       href={href}
-      className={`card group hover-shadow relative overflow-hidden rounded-xl border border-border-primary bg-background-secondary p-8 transition-all duration-300 hover:border-transparent hover:shadow-lg hover:shadow-[${glowColor}20]`}
+      className={`card group hover-shadow relative overflow-hidden rounded-xl border border-border-primary bg-background-secondary p-8 transition-all duration-300 hover:border-transparent hover:shadow-lg ${shadowClasses}`}
     >
       <div className="flex flex-col items-center text-center relative z-10">
         <div className="flex items-center justify-center h-20 mb-6 relative">

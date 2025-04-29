@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight, FaUser } from 'react-icons/fa';
-import EditionBadge from './EditionBadge';
+import { EditionBadge } from './EditionBadge';
 import { useSidebar } from '@/contexts/SidebarContext';
 
 interface NavItem {

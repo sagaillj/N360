@@ -58,4 +58,4 @@ const EditionBadge: FC<EditionBadgeProps> = ({ edition, className = '' }) => {
   );
 };
 
-export default EditionBadge; 
+export { EditionBadge }; 

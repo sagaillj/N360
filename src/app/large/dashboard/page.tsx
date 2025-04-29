@@ -2,7 +2,7 @@ import React from 'react';
 import { FaHome, FaBook, FaUsers, FaCalendar, FaTrophy, FaCheckCircle, FaChartLine, FaBuilding } from 'react-icons/fa';
 import Card from '@/components/Card';
 import ProgressBar from '@/components/ProgressBar';
-import EditionBadge from '@/components/EditionBadge';
+import { EditionBadge } from '@/components/EditionBadge';
 
 interface ActivityItem {
   type: 'training' | 'team' | 'organization';
