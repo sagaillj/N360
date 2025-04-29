@@ -13,63 +13,44 @@ import {
 } from 'react-icons/fa';
 import Card from '@/components/Card';
 import ProgressBar from '@/components/ProgressBar';
+import { CourseModule, TeamMember, RecommendedCourse } from '@/types';
 
-interface GroupModule {
-  id: number;
-  title: string;
-  description: string;
-  duration: string;
-  totalParticipants: number;
-  activeParticipants: number;
-  progress: number;
-  status: 'completed' | 'in-progress' | 'not-started';
-}
-
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  avatar: string;
-  progress: number;
-  lastActive: string;
-}
-
-const groupModules: GroupModule[] = [
+const groupModules: CourseModule[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Team Communication Essentials',
     description: 'Master effective team communication and collaboration strategies',
     duration: '4 hours',
     totalParticipants: 12,
     activeParticipants: 8,
     progress: 75,
-    status: 'in-progress',
+    status: 'in_progress',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Group Project Management',
     description: 'Learn to plan, execute, and deliver successful group projects',
     duration: '6 hours',
     totalParticipants: 12,
     activeParticipants: 10,
     progress: 45,
-    status: 'in-progress',
+    status: 'in_progress',
   },
   {
-    id: 3,
+    id: '3',
     title: 'Conflict Resolution Workshop',
     description: 'Develop skills to handle team conflicts professionally',
     duration: '3 hours',
     totalParticipants: 12,
     activeParticipants: 0,
     progress: 0,
-    status: 'not-started',
+    status: 'not_started',
   },
 ];
 
 const teamMembers: TeamMember[] = [
   {
-    id: 1,
+    id: 'member-1',
     name: 'Sarah Johnson',
     role: 'Team Lead',
     avatar: '/avatars/sarah.jpg',
@@ -77,7 +58,7 @@ const teamMembers: TeamMember[] = [
     lastActive: '2 hours ago',
   },
   {
-    id: 2,
+    id: 'member-2',
     name: 'Mike Chen',
     role: 'Developer',
     avatar: '/avatars/mike.jpg',
@@ -85,12 +66,27 @@ const teamMembers: TeamMember[] = [
     lastActive: '1 hour ago',
   },
   {
-    id: 3,
+    id: 'member-3',
     name: 'Emma Davis',
     role: 'Designer',
     avatar: '/avatars/emma.jpg',
     progress: 70,
     lastActive: '30 minutes ago',
+  },
+];
+
+const recommendedCourses: RecommendedCourse[] = [
+  {
+    id: 'rec-1',
+    title: 'Leadership Essentials',
+    description: 'Develop core leadership skills for personal growth',
+    duration: '4 hours',
+  },
+  {
+    id: 'rec-2',
+    title: 'Emotional Intelligence',
+    description: 'Enhance your EQ for better relationships',
+    duration: '3 hours',
   },
 ];
 
@@ -162,7 +158,7 @@ export default function TrainingPage() {
                       <div className="flex justify-end">
                         <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                           <FaPlay className="text-sm" />
-                          {module.status === 'in-progress' ? 'Continue Module' : 'Start Module'}
+                          {module.status === 'in_progress' ? 'Continue Module' : 'Start Module'}
                         </button>
                       </div>
                     )}

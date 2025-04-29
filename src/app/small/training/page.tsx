@@ -1,42 +1,59 @@
 'use client';
 
 import React from 'react';
-import { FaBook, FaCheckCircle, FaClock, FaStar, FaPlay } from 'react-icons/fa';
+import {
+  FaBook,
+  FaUsers,
+  FaCheckCircle,
+  FaClock,
+  FaStar,
+  FaPlay,
+  FaUserFriends,
+  FaChalkboardTeacher,
+} from 'react-icons/fa';
 import Card from '@/components/Card';
+import ProgressBar from '@/components/ProgressBar';
+import { CourseModule } from '@/types';
 
-interface CourseModule {
+interface TeamMember {
   id: number;
-  title: string;
-  description: string;
-  duration: string;
+  name: string;
+  role: string;
+  avatar: string;
   progress: number;
-  status: 'completed' | 'in-progress' | 'not-started';
+  lastActive: string;
 }
 
-const courseModules: CourseModule[] = [
+const groupModules: CourseModule[] = [
   {
-    id: 1,
-    title: 'Foundations of Personal Growth',
-    description: 'Master the fundamentals of self-development and goal setting',
-    duration: '2 hours',
-    progress: 100,
-    status: 'completed',
+    id: '1',
+    title: 'Team Communication Essentials',
+    description: 'Master effective team communication and collaboration strategies',
+    duration: '4 hours',
+    totalParticipants: 12,
+    activeParticipants: 8,
+    progress: 75,
+    status: 'in_progress',
   },
   {
-    id: 2,
-    title: 'Effective Communication Skills',
-    description: 'Learn to express yourself clearly and build stronger relationships',
+    id: '2',
+    title: 'Group Project Management',
+    description: 'Learn to plan, execute, and deliver successful group projects',
+    duration: '6 hours',
+    totalParticipants: 12,
+    activeParticipants: 10,
+    progress: 45,
+    status: 'in_progress',
+  },
+  {
+    id: '3',
+    title: 'Conflict Resolution Workshop',
+    description: 'Develop skills to handle team conflicts professionally',
     duration: '3 hours',
-    progress: 60,
-    status: 'in-progress',
-  },
-  {
-    id: 3,
-    title: 'Time Management Mastery',
-    description: 'Optimize your productivity and achieve work-life balance',
-    duration: '2.5 hours',
+    totalParticipants: 12,
+    activeParticipants: 0,
     progress: 0,
-    status: 'not-started',
+    status: 'not_started',
   },
 ];
 
@@ -70,7 +87,7 @@ export default function TrainingPage() {
           Current Modules
         </h2>
         <div className="grid gap-6">
-          {courseModules.map((module) => (
+          {groupModules.map((module) => (
             <Card key={module.id} className="transform transition-all hover:scale-[1.01]">
               <div className="p-6">
                 <div className="flex justify-between items-start">
@@ -86,7 +103,7 @@ export default function TrainingPage() {
                     {module.status === 'completed' && (
                       <FaCheckCircle className="text-green-500 text-xl" />
                     )}
-                    {module.status === 'in-progress' && (
+                    {module.status === 'in_progress' && (
                       <div className="h-4 w-4 rounded-full border-2 border-primary border-t-transparent animate-spin" />
                     )}
                   </div>
@@ -103,9 +120,9 @@ export default function TrainingPage() {
                   </div>
                 </div>
                 {module.status !== 'completed' && (
-                  <button className="mt-4 flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                     <FaPlay className="text-sm" />
-                    {module.status === 'in-progress' ? 'Continue Learning' : 'Start Module'}
+                    {module.status === 'in_progress' ? 'Continue Module' : 'Start Module'}
                   </button>
                 )}
               </div>

@@ -1,47 +1,15 @@
-import { Button } from '@/components/ui/Button';
 import { dummyCourse } from '@/lib/dummyData';
-import { FaCheck, FaLock, FaPlay } from 'react-icons/fa';
+import { FaBook } from 'react-icons/fa';
 import { EditionBadge } from '@/components/EditionBadge';
-
-const ModuleCard = ({ module, isCompleted, isCurrent }: {
-  module: typeof dummyCourse.modules[0];
-  isCompleted: boolean;
-  isCurrent: boolean;
-}) => (
-  <div className={`bg-white rounded-lg shadow p-6 ${
-    isCurrent ? 'border-2 border-primary' : ''
-  }`}>
-    <div className="flex items-start justify-between">
-      <div>
-        <h3 className="text-lg font-semibold text-secondary">
-          {module.title}
-        </h3>
-        <p className="mt-2 text-gray-600">
-          {module.description}
-        </p>
-      </div>
-      {isCompleted ? (
-        <div className="text-primary">
-          <FaCheck className="w-6 h-6" />
-        </div>
-      ) : isCurrent ? (
-        <Button size="sm">
-          <FaPlay className="mr-2" />
-          Continue
-        </Button>
-      ) : (
-        <div className="text-gray-400">
-          <FaLock className="w-6 h-6" />
-        </div>
-      )}
-    </div>
-  </div>
-);
+import { ModuleCard } from '@/components/ModuleCard';
+import { calculateModuleProgress } from '@/lib/utils';
 
 export default function GroupCoursePage() {
   const currentModuleIndex = dummyCourse.modules.findIndex(
     (m) => m.status === 'in_progress'
   );
+
+  const { progress, formattedProgress } = calculateModuleProgress(dummyCourse.modules);
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -64,20 +32,13 @@ export default function GroupCoursePage() {
               Group Progress
             </span>
             <span className="text-sm font-medium text-primary">
-              {dummyCourse.modules.filter(m => m.status === 'completed').length}/
-              {dummyCourse.modules.length} modules
+              {formattedProgress} modules
             </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div
-              className="bg-primary h-2.5 rounded-full"
-              style={{
-                width: `${
-                  (dummyCourse.modules.filter(m => m.status === 'completed').length /
-                    dummyCourse.modules.length) *
-                  100
-                }%`,
-              }}
+              className="bg-primary h-2.5 rounded-full transition-all duration-500"
+              style={{ width: `${progress}%` }}
             />
           </div>
         </div>
@@ -90,6 +51,7 @@ export default function GroupCoursePage() {
               module={module}
               isCompleted={module.status === 'completed'}
               isCurrent={index === currentModuleIndex}
+              variant="group"
             />
           ))}
         </div>

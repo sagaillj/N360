@@ -59,8 +59,12 @@ export interface CourseModule {
   id: string;
   title: string;
   description: string;
-  content: string;
+  content?: string;
+  duration: string;
+  progress: number;
   status: 'not_started' | 'in_progress' | 'completed';
+  totalParticipants?: number;
+  activeParticipants?: number;
 }
 
 export interface MapPoint {
@@ -77,4 +81,20 @@ export interface MapNote {
   content: string;
   author: User;
   createdAt: Date;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  avatar: string;
+  progress: number;
+  lastActive: string;
+}
+
+export interface RecommendedCourse {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
 } 

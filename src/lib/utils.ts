@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { CourseModule } from '@/types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -38,4 +39,17 @@ export function truncateText(text: string, maxLength: number): string {
 
 export function classNames(...classes: (string | boolean | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
-} 
+}
+
+export const calculateModuleProgress = (modules: CourseModule[]) => {
+  const totalModules = modules.length;
+  const completedModules = modules.filter(m => m.status === 'completed').length;
+  const progress = (completedModules / totalModules) * 100;
+
+  return {
+    totalModules,
+    completedModules,
+    progress,
+    formattedProgress: `${completedModules}/${totalModules}`,
+  };
+}; 
