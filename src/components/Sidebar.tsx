@@ -13,7 +13,7 @@ interface NavItem {
 }
 
 interface SidebarProps {
-  edition: 'Small' | 'Medium' | 'Large';
+  edition: 'Personal' | 'Group' | 'Community';
   navItems: NavItem[];
 }
 

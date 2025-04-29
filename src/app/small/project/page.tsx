@@ -69,7 +69,7 @@ const ProjectPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
-        <EditionBadge edition="Individual" />
+        <EditionBadge edition="Personal" />
         <p className="text-gray-600">{project.description}</p>
       </div>
 

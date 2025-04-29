@@ -51,7 +51,7 @@ export default function GroupCoursePage() {
           <h1 className="text-3xl font-bold text-secondary">
             Group Training: {dummyCourse.title}
           </h1>
-          <EditionBadge edition="Medium" />
+          <EditionBadge edition="Group" />
           <p className="mt-2 text-gray-600">
             Complete this training together as a group
           </p>

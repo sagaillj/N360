@@ -3,25 +3,25 @@
 import { FC } from 'react';
 
 interface EditionBadgeProps {
-  edition: 'Small' | 'Medium' | 'Large';
+  edition: 'Personal' | 'Group' | 'Community';
   className?: string;
 }
 
 const EditionBadge: FC<EditionBadgeProps> = ({ edition, className = '' }) => {
   const colors = {
-    Small: {
+    Personal: {
       text: 'text-accent-yellow',
       border: 'border-accent-yellow',
       glow: 'after:bg-accent-yellow',
-      label: 'Individual',
+      label: 'Personal',
     },
-    Medium: {
+    Group: {
       text: 'text-accent-peach',
       border: 'border-accent-peach',
       glow: 'after:bg-accent-peach',
       label: 'Group',
     },
-    Large: {
+    Community: {
       text: 'text-accent-green',
       border: 'border-accent-green',
       glow: 'after:bg-accent-green',

@@ -49,7 +49,7 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-bold text-text-primary mb-2">Organization Dashboard</h1>
           <p className="text-text-secondary">Track your organization's progress and impact</p>
         </div>
-        <EditionBadge edition="Large" />
+        <EditionBadge edition="Community" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

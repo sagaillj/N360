@@ -52,9 +52,9 @@ const CoursePage: React.FC = () => {
         {/* Course Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-secondary">
-            {dummyCourse.title}
+            Personal Training: {dummyCourse.title}
           </h1>
-          <EditionBadge edition="Individual" />
+          <EditionBadge edition="Personal" />
           <p className="mt-2 text-gray-600">
             Complete this training at your own pace
           </p>

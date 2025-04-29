@@ -75,7 +75,7 @@ export default function DashboardPage() {
                 Welcome back, {user.name}!
               </h1>
               <div className="flex items-center space-x-3 mb-3">
-                <EditionBadge edition="Small" />
+                <EditionBadge edition="Personal" />
               </div>
               <p className="text-lg text-text-secondary animate-fade-in-delay">
                 Ready to make an impact in your neighborhood today?
